@@ -1,0 +1,258 @@
+---
+file safety:
+  ".gitignore":
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  ".rubocop.yml":
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  ".travis.yml":
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  Gemfile:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  LICENSE.txt:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  README.md:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  Rakefile:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  bin/console:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  bin/setup:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  gemfiles/Gemfile.rails42:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  gemfiles/Gemfile.rails50:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/client.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/demographics_only_pseudonymiser.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/engine.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/prescription_pseudonymiser.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/progress_printer.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/pseudonymisation_specification.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/pseudonymised_file_converter.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/pseudonymised_file_wrapper.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/simple_pseudonymisation.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/ndr_pseudonymise/version.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  lib/rsa_aes_cbc.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  ndr_pseudonymise.gemspec:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/test_helper.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/deathdata_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/deathrecords_out.txt:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/demographics_only_pseudonymiser_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/issue4810_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/ndr_pseudonymise/client_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/ndr_pseudonymise_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/out_buff1_2.3.0_encrypted:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_0.0.1.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_0.0.2.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_0.9.9.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_1.0.0.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_1.0.1.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_data_format_1.1.0.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/prescription_pseudonymiser_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/pseudonymisation_specification_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/pseudonymise_rsa_test_3072bit.nocrypt.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/pseudonymise_rsa_test_3072bit.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/pseudonymise_rsa_test_3072bit_pub.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/salt_4810.kek:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/salt_4810.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample4810_rsa3072.nocrypt.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample4810_rsa3072.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample4810_rsa3072_crypt.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample4810_rsa3072_pub.pem:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_data.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_data_spec.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_data_spec_demographics_only.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_death_data.txt:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_death_data.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_prescription_data.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_prescription_data_v2.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_prescription_data_v2_out.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_prescription_data_v3.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_prescription_data_v3_out.csv:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_salt.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/sample_salt_bundle.kek:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/simple_pseudonymisation_test.rb:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/standard_mappings.yml:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+  test/unit/test_files/.gitignore:
+    comments: 
+    reviewed_by: brian.shand
+    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
