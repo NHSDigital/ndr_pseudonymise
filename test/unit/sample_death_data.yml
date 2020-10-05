@@ -1,0 +1,141 @@
+---
+cd:
+- column: generic_registrycode
+  unpack_pattern: a2
+- column: surname
+  mappings:
+  - replace:
+      ? !ruby/regexp /(\\s*\\/\\s*|\\s{2,})/
+      : " "
+    field: surname
+  unpack_pattern: a50
+- column: previoussurname
+  mappings:
+  - replace:
+      ? !ruby/regexp /(\\s*\\/\\s*|\\s{2,})/
+      : " "
+    field: previoussurname
+  unpack_pattern: a40
+- column: forenames
+  mappings:
+  - replace:
+      ? !ruby/regexp /(\\s*\\/\\s*|\\s{2,})/
+      : " "
+    field: forenames
+  unpack_pattern: a60
+- column: aliases
+  unpack_pattern: a75
+- standard_mapping: sex
+  unpack_pattern: a1
+- column: placeofbirth
+  unpack_pattern: a60
+- column: dateofbirth
+  mappings:
+  - format: yyyymmdd
+    field: dateofbirth
+  unpack_pattern: a8
+- column: dateofbirth_text
+  unpack_pattern: a40
+- column: address
+  mappings:
+  - replace:
+      /: ","
+    field: address
+  unpack_pattern: a106
+- column: postcode
+  mappings:
+  - clean: :postcode
+    field: postcode
+  unpack_pattern: a7
+- column: occupation
+  unpack_pattern: a75
+- column: occupation_husband_father
+  unpack_pattern: a75
+- column: occupation_mother
+  unpack_pattern: a75
+- column: dateofdeath
+  mappings:
+  - format: yyyymmdd
+    field: dateofdeath
+  unpack_pattern: a8
+- column: dateofdeath_text
+  unpack_pattern: a40
+- column: placeofdeath
+  unpack_pattern: a106
+- column: ons_text1a
+  unpack_pattern: a75
+- column: ons_text1b
+  unpack_pattern: a75
+- column: ons_text1c
+  unpack_pattern: a75
+- column: ons_text2
+  unpack_pattern: a75
+- column: ons_text
+  unpack_pattern: a75
+- column: ons_code1a
+  unpack_pattern: a40
+- column: ons_code1b
+  unpack_pattern: a40
+- column: ons_code1c
+  unpack_pattern: a40
+- column: ons_code2
+  unpack_pattern: a40
+- column: ons_code
+  unpack_pattern: a40
+- column: deathcausecode_underlying
+  unpack_pattern: a4
+- column: deathcausecode_significant
+  unpack_pattern: a4
+- column: registration_details
+  unpack_pattern: a13
+- column: certifier
+  unpack_pattern: a50
+- column: coronerscertificate
+  unpack_pattern: a100
+- column: coronersname
+  unpack_pattern: a50
+- column: coronersarea
+  unpack_pattern: a100
+- column: dateofinquest
+  unpack_pattern: a50
+- column: informantqualification
+  unpack_pattern: a2
+- column: informantqualification_text
+  unpack_pattern: a40
+- column: inquestcertificatetype
+  unpack_pattern: a1
+- column: inquestcertificatetype_text
+  unpack_pattern: a12
+- standard_mapping: nhsnumber
+  unpack_pattern: a10
+format:
+  :core_demographics:
+  - - - 8
+      - ! ' '
+  - - - 4
+      - ! ' '
+      - :upcase
+    - - 6
+      - ! ' '
+      - :upcase
+  :demographics:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 9
+  :encrypt_clinical: false
+  :columns:
+  - :title: surname
+  - :title: previoussurname
+  - :title: forenames
+  - :title: sex
+  - :title: dateofbirth
+  - :title: address
+  - :title: postcode
+  - :title: dateofdeath
+  - :title: nhsnumber
+  - :title: rawtext

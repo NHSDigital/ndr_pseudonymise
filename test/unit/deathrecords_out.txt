@@ -1,0 +1,33 @@
+==== Record 1 ====
+surname : SURNAME/
+previoussurname : ATBIRTH
+forenames : FIRSTNAME           FIR
+sex : 2
+dateofbirth : 1945-01-13T00:00:00+00:00
+address : 99 Madeup Road Gateshead NE100AA
+postcode : NE100AA
+dateofdeath : 2016-03-28T00:00:00+00:00
+nhsnumber : 9999999468
+rawtext : {"generic_registrycode"=>"01", "surname"=>"SURNAME/", "previoussurname"=>"ATBIRTH", "forenames"=>"FIRSTNAME           FIR", "aliases"=>"", "sex"=>"F", "placeofbirth"=>"Gateshead, Tyne and Wear", "dateofbirth"=>"19450113", "dateofbirth_text"=>"", "address"=>"99 Madeup Road Gateshead NE100AA", "postcode"=>"NE100AA", "occupation"=>"Cleaner", "occupation_husband_father"=>"", "occupation_mother"=>"", "dateofdeath"=>"20160328", "dateofdeath_text"=>"", "placeofdeath"=>"Queen Elizabeth Hospital/ Gateshead NE9 6SX", "ons_text1a"=>"Bilateral Broncho Pneumonia", "ons_text1b"=>"Non-Hodgkins Lymphoma", "ons_text1c"=>"", "ons_text2"=>"Asthma, Left Hemisphere Stroke", "ons_text"=>"", "ons_code1a"=>"J180", "ons_code1b"=>"C859", "ons_code1c"=>"", "ons_code2"=>"", "ons_code"=>"J459,I64", "deathcausecode_underlying"=>"C859", "deathcausecode_significant"=>"", "registration_details"=>"1234C0C012345", "certifier"=>"M Surna MB", "coronerscertificate"=>"", "coronersname"=>"", "coronersarea"=>"", "dateofinquest"=>"", "informantqualification"=>"1", "informantqualification_text"=>"", "inquestcertificatetype"=>"", "inquestcertificatetype_text"=>"", "nhsnumber"=>"9999999468"}
+==== Record 2 ====
+surname : SURNAMESURNAME/
+previoussurname : SURNAME
+forenames : FORENAME            MORENAME
+sex : 2
+dateofbirth : 1938-05-08T00:00:00+00:00
+address : 99 Testing Road, Hackney E5 E5 8AA
+postcode : E5  8AA
+dateofdeath : 2016-03-27T00:00:00+00:00
+nhsnumber : 9999999476
+rawtext : {"generic_registrycode"=>"08", "surname"=>"SURNAMESURNAME/", "previoussurname"=>"SURNAME", "forenames"=>"FORENAME            MORENAME", "aliases"=>"", "sex"=>"F", "placeofbirth"=>"Countryname", "dateofbirth"=>"19380508", "dateofbirth_text"=>"", "address"=>"99 Testing Road/ Hackney E5 E5 8AA", "postcode"=>"E5  8AA", "occupation"=>"Full Time Mother", "occupation_husband_father"=>"", "occupation_mother"=>"", "dateofdeath"=>"20160327", "dateofdeath_text"=>"", "placeofdeath"=>"99 Example Road/ Hackney E5 E5 8AA", "ons_text1a"=>"Urinary Tract Infection", "ons_text1b"=>"Metastatic Lung Cancer", "ons_text1c"=>"", "ons_text2"=>"", "ons_text"=>"", "ons_code1a"=>"N390", "ons_code1b"=>"C349", "ons_code1c"=>"", "ons_code2"=>"", "ons_code"=>"", "deathcausecode_underlying"=>"C349", "deathcausecode_significant"=>"", "registration_details"=>"1234A0A012345", "certifier"=>"Firstn Sur MB", "coronerscertificate"=>"", "coronersname"=>"", "coronersarea"=>"", "dateofinquest"=>"", "informantqualification"=>"1", "informantqualification_text"=>"", "inquestcertificatetype"=>"", "inquestcertificatetype_text"=>"", "nhsnumber"=>"9999999476"}
+==== Record 3 ====
+surname : LASTNAME/
+forenames : FIRSTNAME           OTHERNAME
+sex : 1
+dateofbirth : 1948-11-25T00:00:00+00:00
+address : 99 Madeupfaked Road Paignton Devon TQ4 6AA
+postcode : TQ4 6AA
+dateofdeath : 2015-11-30T00:00:00+00:00
+nhsnumber : 9999999484
+rawtext : {"generic_registrycode"=>"15", "surname"=>"LASTNAME/", "previoussurname"=>"", "forenames"=>"FIRSTNAME           OTHERNAME", "aliases"=>"", "sex"=>"M", "placeofbirth"=>"Townname County", "dateofbirth"=>"19481125", "dateofbirth_text"=>"", "address"=>"99 Madeupfaked Road Paignton Devon TQ4 6AA", "postcode"=>"TQ4 6AA", "occupation"=>"Electrician/ Carpenter", "occupation_husband_father"=>"", "occupation_mother"=>"", "dateofdeath"=>"20151130", "dateofdeath_text"=>"", "placeofdeath"=>"Torbay Hospital/ Torquay", "ons_text1a"=>"Malignant Mesethelioma of left pleural cavity", "ons_text1b"=>"", "ons_text1c"=>"", "ons_text2"=>"", "ons_text"=>"Conclusion: Industrial Disease", "ons_code1a"=>"C450", "ons_code1b"=>"", "ons_code1c"=>"", "ons_code2"=>"", "ons_code"=>"", "deathcausecode_underlying"=>"C450", "deathcausecode_significant"=>"", "registration_details"=>"1234A0A012346", "certifier"=>"", "coronerscertificate"=>"", "coronersname"=>"Abc Lastn", "coronersarea"=>"Plymouth, Torbay and South Devon", "dateofinquest"=>"Twenty-second February 2016", "informantqualification"=>"", "informantqualification_text"=>"", "inquestcertificatetype"=>"2", "inquestcertificatetype_text"=>"", "nhsnumber"=>"9999999484"}
+

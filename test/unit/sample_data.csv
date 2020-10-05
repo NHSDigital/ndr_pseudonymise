@@ -1,0 +1,4 @@
+nhs_number,birthdate,postcode,surname,forenames,data1,data2
+1234567881,2010-08-21,CB22 3AD,MADEUP,Some one,d1,d2
+1234567881,2010-08-21,CB22 3AD,MADEUP,Some other,d3,d4
+1111111111,2010-08-21,CB22 3AD,FAKENAME,Short row,d5

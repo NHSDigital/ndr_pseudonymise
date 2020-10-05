@@ -1,0 +1,61 @@
+---
+:core_demographics:
+- - - 0
+    - ! ' '
+- - - 5
+    - ! ' '
+    - :upcase
+  - - 7
+    - ! ' '
+    - :upcase
+:columns:
+- :title: pat_nhs_num
+  :comment: Allow 10 digit NHS number plus 2 spaces
+  :maxlength: 12
+  :format: \A[0-9A-Za-z ]*\Z
+  :format_msg: must contain only numbers, or numbers and letters for old NHS numbers
+  :canonical_title: nhsnumber
+- :title: patient_title
+- :title: patient_forename
+- :title: patient_middle_name
+- :title: patient_surname
+- :title: pat_dob
+  :maxlength: 10
+  :format: \A([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]|)\Z
+  :format_msg: must have format YYYY-MM-DD, e.g. 2013-08-20
+  :canonical_title: birthdate
+- :title: pat_gender
+  :format: \A([Mm][Aa][Ll][Ee]|[Ff][Ee][Mm][Aa][Ll][Ee]|[Oo][Tt][Hh][Ee][Rr])\Z
+  :format_msg: must be Male or Female or Other
+- :title: pat_address_postcode
+  :maxlength: 8
+  :format: \A[0-9A-Za-z ]*\Z
+  :format_msg: must contain only numbers, letters and spaces
+  :canonical_title: postcode
+- :title: prescrib_date
+  :maxlength: 10
+  :format: \A([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]|)\Z
+  :format_msg: must have format YYYY-MM-DD, e.g. 2013-08-20
+- :title: presc_address_postcode
+  :maxlength: 8
+  :format: \A[0-9A-Za-z ]*\Z
+  :format_msg: must contain only numbers, letters and spaces
+- :title: presc_pct_code
+- :title: presc_practice_code
+- :title: pay_nic
+- :title: presc_quantity
+- :title: disp_num_items
+- :title: disp_etp_unit_of_measure
+- :title: pay_quantity
+- :title: disp_captured_code_info
+- :title: bnf_code
+:demographics:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+:encrypt_clinical: false
