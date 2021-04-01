@@ -1,4 +1,4 @@
-require 'active_support/core_ext'
+require 'active_support'
 
 require 'ndr_pseudonymise/version'
 require 'ndr_pseudonymise/pseudonymisation_specification'
