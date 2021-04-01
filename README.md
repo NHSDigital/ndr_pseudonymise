@@ -1,4 +1,4 @@
-# NdrPseudonymise
+## NdrPseudonymise [![Build Status](https://github.com/publichealthengland/ndr_pseudonymise/workflows/Test/badge.svg)](https://github.com/publichealthengland/ndr_pseudonymise/actions?query=workflow%3Atest)
 
 Pseudonymise confidential data, in CSV format, with specifications for which fields to be encrypted.
 

@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'minitest', '>= 5.0'
   spec.add_development_dependency 'mocha'
-  spec.add_development_dependency 'ndr_dev_support', '>= 2.0'
+  spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
   spec.add_development_dependency 'ndr_import'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '>= 10.0'
