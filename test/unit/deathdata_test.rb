@@ -12,14 +12,15 @@ class DeathDataTest < ActiveSupport::TestCase
 
   attr_reader :mappings
 
-  def stripblanks(h)
+  def stripblanks(hash)
     # remove trailing whitespace in hash values
     newh = {}
-    h.each do |k, v|
+    hash.each do |k, v|
       newh[k] =
-        if v.is_a?(String)
+        case v
+        when String
           v.rstrip
-        elsif v.is_a?(Hash)
+        when Hash
           stripblanks(v) # recursive call for hash of hashes
         else
           v
@@ -39,7 +40,7 @@ class DeathDataTest < ActiveSupport::TestCase
     NdrImport::StandardMappings.mappings =
       YAML.load_file(File.join(TESTDIR, 'standard_mappings.yml'))
 
-    y = YAML.load_file(MAPPINGS_FILE)
+    y = File.open(MAPPINGS_FILE) { |f| YAML.safe_load(f, permitted_classes: [Regexp, Symbol]) }
     @mappings = y['cd']
     @format_spec = y['format']
 
@@ -47,11 +48,13 @@ class DeathDataTest < ActiveSupport::TestCase
     @all_records = []
     @lines.each do |line|
       # mapped_line & fixed_width_columns come from mapper.rb
-      # mapped_line returns a hash, from which the values are extracted (in original insertion order)
+      # mapped_line returns a hash, from which the values are extracted
+      # (in original insertion order)
       @all_records += [mapped_line(fixed_width_columns(line, @mappings), @mappings).values]
     end
 
-    @salt = NdrPseudonymise::PseudonymisationSpecification.get_key_bundle(SAMPLE_SALT_BUNDLE, SAMPLE_SALT_PASSPHRASE)
+    @salt = NdrPseudonymise::PseudonymisationSpecification.
+            get_key_bundle(SAMPLE_SALT_BUNDLE, SAMPLE_SALT_PASSPHRASE)
   end
 
   test 'number_of_records' do
@@ -66,9 +69,9 @@ class DeathDataTest < ActiveSupport::TestCase
     #    for a blank 'previoussurname' field, a '/' must be used to delimit this. **
     @pspec = NdrPseudonymise::PseudonymisationSpecification.new(@format_spec, @salt)
 
-    assert_equal([[%w(nhsnumber 9999999492)],
-                  [%w(dateofbirth 1938-05-08T00:00:00+00:00),
-                   %w(postcode E58AA)]],
+    assert_equal([[%w[nhsnumber 9999999492]],
+                  [%w[dateofbirth 1938-05-08T00:00:00+00:00],
+                   %w[postcode E58AA]]],
                  @pspec.core_demographics(@row))
   end
 end
