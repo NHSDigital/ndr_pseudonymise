@@ -3,7 +3,7 @@ require 'optparse'
 module NdrEncrypt
   # ndr_encrypt command line utility entry points.
   module CommandLine
-    USAGE = <<~USAGE.freeze
+    USAGE = <<-USAGE.gsub(/^      /, '').freeze
       usage: ndr_encrypt [-v | --version] [-h | --help]
                          <command> [<args>]
 
@@ -41,7 +41,7 @@ module NdrEncrypt
       options = {}
       parser = OptionParser.new do |opts|
         # Hide TODOs in usage message
-        usage = USAGE.split("\n").grep_v(/TODO/).join("\n")
+        usage = USAGE.split("\n").reject { |s| s =~ /TODO/ }.join("\n")
         opts.banner = "#{usage.chomp}\n\nAdditional options:"
 
         opts.on('--base_url=URL', 'Remote repository URL') do |url|
@@ -74,12 +74,12 @@ module NdrEncrypt
       parser.parse('--help') if ARGV.empty?
       command = ARGV[0]
       unless COMMANDS.include?(command)
-        warn <<~UNKNOWN_CMD
-          ndr_encrypt: '#{command}' is not an ndr_encrypt command. See 'ndr_encrypt --help'.
+        warn <<-UNKNOWN_CMD
+ndr_encrypt: '#{command}' is not an ndr_encrypt command. See 'ndr_encrypt --help'.
         UNKNOWN_CMD
         exit 1
       end
-      send(command.gsub('-', '_'), ARGV[1..], options)
+      send(command.gsub('-', '_'), ARGV[1..-1], options)
     end
 
     def self.init(args, options)
@@ -88,8 +88,8 @@ module NdrEncrypt
       unless (options.keys - allowed_options).empty? &&
              required_options.all? { |sym| options.key?(sym) } &&
              args.size <= 1
-        warn <<~USAGE
-          usage: ndr_encrypt init [<path>]
+        warn <<-USAGE
+usage: ndr_encrypt init [<path>]
         USAGE
         exit 1
       end
@@ -109,8 +109,8 @@ module NdrEncrypt
       allowed_options = required_options
       unless (options.keys - allowed_options).empty? &&
              required_options.all? { |sym| options.key?(sym) }
-        warn <<~USAGE
-          usage: ndr_encrypt add --key_name=<keyname> --pub_key=<path> [<path>...]
+        warn <<-USAGE
+usage: ndr_encrypt add --key_name=<keyname> --pub_key=<path> [<path>...]
         USAGE
         exit 1
       end
@@ -131,9 +131,9 @@ module NdrEncrypt
       unless (options.keys - allowed_options).empty? &&
              required_options.all? { |sym| options.key?(sym) } &&
              args.size == 1
-        warn <<~USAGE
-          usage: ndr_encrypt cat-remote --key_name=<keyname> --private_key=<path> --base_url=<url>
-                                        -p <git_blobid>
+        warn <<-USAGE
+usage: ndr_encrypt cat-remote --key_name=<keyname> --private_key=<path> --base_url=<url>
+                              -p <git_blobid>
         USAGE
         exit 1
       end
@@ -152,8 +152,8 @@ module NdrEncrypt
       allowed_options = required_options + %i[passin]
       unless (options.keys - allowed_options).empty? &&
              required_options.all? { |sym| options.key?(sym) }
-        warn <<~USAGE
-          usage: ndr_encrypt get --key_name=<keyname> --private_key=<path> [<path>...]
+        warn <<-USAGE
+usage: ndr_encrypt get --key_name=<keyname> --private_key=<path> [<path>...]
         USAGE
         exit 1
       end

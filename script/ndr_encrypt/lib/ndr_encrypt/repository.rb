@@ -8,7 +8,10 @@ module NdrEncrypt
     CSV_COLUMNS = %w[git_blobid path].freeze
     ENCRYPTED_DIR = 'ndr_encrypted/'.freeze
 
-    def initialize(repo_dir:)
+    def initialize(repo_dir: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :repo_dir') unless repo_dir
+
       @repo_dir = repo_dir
     end
 
@@ -22,7 +25,10 @@ module NdrEncrypt
     end
 
     # Add file contents to the encrypted store and index
-    def add(paths, key_name:, pub_key:)
+    def add(paths, key_name: nil, pub_key: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :key_name') unless key_name
+      raise(ArgumentError, 'missing keyword: :pub_key') unless pub_key
       raise(ArgumentError, 'Invalid ndr_encrypted encrypted store') unless valid_repository?
 
       paths.each do |path|
@@ -33,7 +39,10 @@ module NdrEncrypt
     end
 
     # Retrieve local file(s) based on CSV entry
-    def get(paths, key_name:, private_key:, passin:)
+    def get(paths, key_name: nil, private_key: nil, passin: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :key_name') unless key_name
+      raise(ArgumentError, 'missing keyword: :private_key') unless private_key
       raise(ArgumentError, 'Invalid ndr_encrypted encrypted store') unless valid_repository?
 
       path_set = Set.new(paths)
@@ -58,14 +67,18 @@ module NdrEncrypt
 
     # Compute object IDs and optionally creates an encrypted object from a file
     # Returns [git_blobid, encrypted_id]
-    def hash_object(path, key_name:, pub_key:, write:)
+    def hash_object(path, key_name: nil, pub_key: nil, write: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :key_name') unless key_name
+      raise(ArgumentError, 'missing keyword: :pub_key') unless pub_key
+
       data = File.binread(path)
       blob = NdrEncrypt::EncryptedObject.blob(data)
       git_blobid = NdrEncrypt::EncryptedObject.digest(blob)
       encrypted_id = NdrEncrypt::EncryptedObject.encrypted_id(git_blobid, key_name: key_name)
       if write
         encrypted_dir = File.join(object_dir, encrypted_id[0..1])
-        encrypted_filename = File.join(encrypted_dir, encrypted_id[2..])
+        encrypted_filename = File.join(encrypted_dir, encrypted_id[2..-1])
         unless File.exist?(encrypted_filename) # Don't override existing file
           contents = NdrEncrypt::EncryptedObject.compress(blob)
           encrypted_contents = NdrEncrypt::EncryptedObject.encrypt(contents, pub_key: pub_key)
@@ -77,9 +90,13 @@ module NdrEncrypt
     end
 
     # Retrieve local file(s) based on git_blobid
-    def cat_file(git_blobid, key_name:, private_key:, passin:)
+    def cat_file(git_blobid, key_name: nil, private_key: nil, passin: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :key_name') unless key_name
+      raise(ArgumentError, 'missing keyword: :private_key') unless private_key
+
       encrypted_id = NdrEncrypt::EncryptedObject.encrypted_id(git_blobid, key_name: key_name)
-      encrypted_filename = File.join(object_dir, encrypted_id[0..1], encrypted_id[2..])
+      encrypted_filename = File.join(object_dir, encrypted_id[0..1], encrypted_id[2..-1])
       unless File.exist?(encrypted_filename)
         raise(ArgumentError, 'File does not exist in encrypted storage')
       end

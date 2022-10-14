@@ -12,9 +12,9 @@ module NdrEncrypt
 
     def self.unpack_blob(blob)
       prefix, data = blob.split("\x00", 2)
-      raise(ArgumentError, 'Invalid blob format') unless /\Ablob [0-9]+\z/.match?(prefix)
+      raise(ArgumentError, 'Invalid blob format') unless /\Ablob [0-9]+\z/ =~ prefix
 
-      size = prefix[5..].to_i
+      size = prefix[5..-1].to_i
       raise(ArgumentError, 'Incorrect blob size') unless size == data.size
 
       data
@@ -34,7 +34,10 @@ module NdrEncrypt
       Zlib::Inflate.inflate(contents)
     end
 
-    def self.encrypted_id(git_blobid, key_name:)
+    def self.encrypted_id(git_blobid, key_name: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :key_name') unless key_name
+
       temp_id = "ndr_encrypt #{git_blobid} #{key_name}"
       digest(blob(temp_id))
     end
@@ -43,7 +46,9 @@ module NdrEncrypt
     # Returns the encrypted output data
     # Result can either be decrypted using the decrypt method on this class.
     # TODO: write equivalent command-line method using only openssl and shell scripts
-    def self.encrypt(secret_data, pub_key:)
+    def self.encrypt(secret_data, pub_key: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :pub_key') unless pub_key
       return nil unless secret_data
 
       public_key_data = File.read(pub_key)
@@ -61,7 +66,9 @@ module NdrEncrypt
     # Returns the decrypted output data
     # TODO: write equivalent command-line method using only openssl and shell scripts
     # TODO: Refactor with code from era UnifiedSources::ApiRetrieval::Extractor
-    def self.decrypt(rawdata, private_key:, passin:)
+    def self.decrypt(rawdata, private_key: nil, passin: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :private_key') unless private_key
       return nil unless rawdata
 
       password = get_passphrase(private_key: private_key, passin: passin)
@@ -80,7 +87,10 @@ module NdrEncrypt
       decrypted_data << cipher.final
     end
 
-    def self.get_passphrase(private_key:, passin:)
+    def self.get_passphrase(private_key: nil, passin: nil)
+      # We need to support ruby 2.0 so cannot use required keyword arguments syntax
+      raise(ArgumentError, 'missing keyword: :private_key') unless private_key
+
       @passphrase_cache ||= {}
       return @passphrase_cache[private_key] if @passphrase_cache.key?(private_key)
 
@@ -100,9 +110,9 @@ module NdrEncrypt
                    password
                  end
                when /\Apass:/
-                 passin[5..]
+                 passin[5..-1]
                when /\Aenv:/
-                 ENV[passin[4..]]
+                 ENV[passin[4..-1]]
                when 'stdin'
                  $stdin.readline.chomp
                else
