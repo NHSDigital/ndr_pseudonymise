@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift(File.join(__dir__, 'lib'))
-require 'ndr_encrypt'
-NdrEncrypt::CommandLine.run!
+$LOAD_PATH.unshift(File.join(__dir__, '../../lib'))
+require 'ndr_pseudonymise/ndr_encrypt'
+NdrPseudonymise::NdrEncrypt::CommandLine.run!

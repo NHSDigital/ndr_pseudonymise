@@ -103,6 +103,30 @@ file `ndr_encrypted/index.csv` has been moved to a table, and the object store
 contents of `ndr_encrypted/objects/` have been hosted on a webserver or S3
 buckets, e.g. inside `https://example.org/encrypted/storage/`
 
+### Using `ndr_pseudonymise` gem
+
+``` ruby
+require 'ndr_pseudonymise/ndr_encrypt'
+
+key_name = 'ourkey1'
+private_key = 'ourkey1.pem'
+private_passphrase = begin # Should be read from encrypted credential storage
+  require 'io/console'
+  IO::console.getpass("Enter decryption passphrase for #{private_key.inspect}: ")
+end
+
+base_url = 'https://example.org/encrypted/storage/'
+git_blobid = 'f29bddf64c444f663d106568f4a81a22151ed3f97b0ec0c2a5ab25a0e8a02515'
+
+remote_repo = NdrPseudonymise::NdrEncrypt::RemoteRepository.new(base_url: base_url)
+decrypted_data = remote_repo.cat_remote(
+  git_blobid, key_name: key_name, private_key: private_key,
+              passin: "pass:#{private_passphrase}"
+)
+```
+
+### Using `ndr_encrypt` command line inside a ruby applcation
+
 ``` ruby
 require 'open3'
 
