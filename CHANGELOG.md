@@ -1,5 +1,6 @@
 ## [Unreleased]
-* No unreleased changes
+## Added
+# Add ndr_encrypt utility script for image encryption.
 
 ## 0.4.0 / 2020-07-08
 ## Changed
