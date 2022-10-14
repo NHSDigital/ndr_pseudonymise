@@ -78,14 +78,10 @@ module NdrPseudonymise
         cipher = OpenSSL::Cipher.new('aes-256-cbc')
         cipher.decrypt
         private_key = OpenSSL::PKey::RSA.new(private_key_data, password)
-        # TODO: Derive block length,
-        # possibly using OpenSSL::PKey::RSA.new(private_key.public_key).public_encrypt('').size
-        # cipher.key = private_key.private_decrypt(rawdata[0..255])
-        cipher.key = private_key.private_decrypt(rawdata[0..511])
-        # cipher.iv = rawdata[256..271]
-        # decrypted_data = cipher.update(rawdata[272..-1])
-        cipher.iv = rawdata[512..527]
-        decrypted_data = cipher.update(rawdata[528..-1])
+        key_size = private_key.n.num_bytes
+        cipher.key = private_key.private_decrypt(rawdata[0..key_size - 1])
+        cipher.iv = rawdata[key_size..key_size + 15]
+        decrypted_data = cipher.update(rawdata[key_size + 16..-1])
         decrypted_data << cipher.final
       end
 

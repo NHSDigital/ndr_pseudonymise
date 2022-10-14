@@ -11,9 +11,7 @@ module NdrPseudonymise
       SAMPLE_DATA_11_BYTES = '01234569a'.freeze
       SAMPLE_DATA_512_BYTES = ('Test' * (512 / 4)).freeze
       SAMPLE_DATA_OVER_2MB = "#{'0123456789abcdef' * (1024 / 16) * 1024 * 2}a".freeze
-      # TODO: Test and support different key sizes
-      # KEY_SIZES = [4096, 2048, 1024].freeze
-      KEY_SIZES = [4096].freeze
+      KEY_SIZES = [4096, 2048, 1024].freeze
 
       def setup
         @data_examples = [SAMPLE_DATA_11_BYTES, SAMPLE_DATA_512_BYTES, SAMPLE_DATA_OVER_2MB]
