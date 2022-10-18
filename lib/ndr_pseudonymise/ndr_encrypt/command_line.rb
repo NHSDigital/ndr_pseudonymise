@@ -20,7 +20,7 @@ work with files
    rm            TODO: Remove files from the encrypted store and index
 
 encryption key rotation and repository maintenance
-   gc            TODO: Cleanup unnecessary files and optimize the local repository
+   gc            Cleanup unnecessary index entries and optimize the encrypted store
    resilver      TODO
    retire-key    TODO
 
@@ -38,7 +38,7 @@ Low-level Commands / Manipulators
    hash-object   TODO: Compute object ID and optionally create an encrypted object from a file
       USAGE
 
-      COMMANDS = %w[init add cat-remote get].freeze
+      COMMANDS = %w[init add cat-remote gc get].freeze
 
       def self.run! # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         options = {}
@@ -150,6 +150,22 @@ usage: ndr_encrypt cat-remote --key_name=<keyname> --private_key=<path> --base_u
                                                    passin: options[:passin])
         # TODO: Add error handling, for connection issues / file not found
         $stdout.print blob
+      end
+
+      def self.gc(args, options)
+        required_options = %i[]
+        allowed_options = required_options
+        unless (options.keys - allowed_options).empty? &&
+               required_options.all? { |sym| options.key?(sym) } &&
+               args.empty?
+          warn <<-USAGE
+usage: ndr_encrypt gc
+          USAGE
+          exit 1
+        end
+
+        path = Dir.pwd
+        NdrEncrypt::Repository.new(repo_dir: path).gc(output_stream: $stdout)
       end
 
       def self.get(args, options) # rubocop:disable Metrics/MethodLength

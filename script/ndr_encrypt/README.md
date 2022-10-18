@@ -37,6 +37,7 @@ work with files
    add           Add file contents to the encrypted store and index
 
 encryption key rotation and repository maintenance
+   gc            Cleanup unnecessary index entries and optimize the encrypted store
 
 decrypt data
    cat-remote    Retrieve remote file based on git_blobid

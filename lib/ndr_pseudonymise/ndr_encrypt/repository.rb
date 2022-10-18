@@ -1,6 +1,7 @@
 require 'csv'
 require 'fileutils'
 require 'set'
+require 'stringio'
 
 module NdrPseudonymise
   module NdrEncrypt
@@ -38,6 +39,40 @@ module NdrPseudonymise
                                                   key_name: key_name, pub_key: pub_key, write: true)
           File.open(index_filename, 'ab') { |f| f << [git_blobid, path].to_csv }
         end
+      end
+
+      # Cleanup unnecessary index entries and optimize the encrypted store
+      def gc(output_stream: StringIO.new)
+        raise(ArgumentError, 'Invalid ndr_encrypted encrypted store') unless valid_repository?
+
+        output_stream.print('Reading index: ')
+        csv_data = CSV.read(index_filename)
+        header = csv_data.shift
+        raise(ArgumentError, 'Invalid header in index file') unless CSV_COLUMNS == header
+
+        count0 = csv_data.size
+        output_stream.print("#{count0} entries.\nRemoving duplicates: ")
+        csv_data.each.with_index do |row, i|
+          unless row.size == 2 && row[0] =~ /\A[0-9a-f]+\z/
+            raise(ArgumentError, "Invalid index entry on data row #{i + 1}")
+          end
+        end
+        csv_data = csv_data.sort.uniq
+        count1 = csv_data.size
+        output_stream.print("#{count1} entries remaining.\nWriting objects: ")
+        # Move aside index file temporarily to reduce race conditions
+        # Note: should use a proper lock file for all index interactions
+        orig_filename = "#{index_filename}.orig"
+        temp_filename = "#{index_filename}.new"
+        FileUtils.mv(index_filename, "#{index_filename}.orig")
+        CSV.open(temp_filename, 'wb') do |csv|
+          csv << header
+          csv_data.each { |row| csv << row }
+        end
+        FileUtils.mv(temp_filename, index_filename)
+        FileUtils.rm(orig_filename)
+        output_stream.puts("100% (#{count1}/#{count1}), done.\n")
+        output_stream.puts("Total #{count1} (delta #{count0 - count1})")
       end
 
       # Retrieve local file(s) based on CSV entry
