@@ -27,7 +27,7 @@ file safety:
   CHANGELOG.md:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 842509985b7be1a8cf5daf207551ef91ad810feb
+    safe_revision: 66f0215cad3df30f1072dedd33e79c25a14cb77e
   Gemfile:
     comments:
     reviewed_by: brian.shand
@@ -131,7 +131,7 @@ file safety:
   lib/ndr_pseudonymise/version.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+    safe_revision: 66f0215cad3df30f1072dedd33e79c25a14cb77e
   lib/rsa_aes_cbc.rb:
     comments:
     reviewed_by: brian.shand
