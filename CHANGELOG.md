@@ -1,5 +1,6 @@
 ## [Unreleased]
-* No unreleased changes
+## Changed
+* ndr_encrypt add recursively includes directory contents
 
 ## 0.4.1 / 2022-10-18
 ## Added

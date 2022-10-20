@@ -1,5 +1,6 @@
 require 'csv'
 require 'fileutils'
+require 'find'
 require 'set'
 require 'stringio'
 
@@ -35,9 +36,13 @@ module NdrPseudonymise
         raise(ArgumentError, 'Invalid ndr_encrypted encrypted store') unless valid_repository?
 
         paths.each do |path|
-          git_blobid, _encrypted_id = hash_object(path,
-                                                  key_name: key_name, pub_key: pub_key, write: true)
-          File.open(index_filename, 'ab') { |f| f << [git_blobid, path].to_csv }
+          Find.find(path) do |fn|
+            next unless File.file?(fn)
+
+            git_blobid, _encrypted_id = hash_object(fn, key_name: key_name,
+                                                        pub_key: pub_key, write: true)
+            File.open(index_filename, 'ab') { |f| f << [git_blobid, fn].to_csv }
+          end
         end
       end
 
