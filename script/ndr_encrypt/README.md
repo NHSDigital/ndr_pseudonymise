@@ -81,6 +81,8 @@ BASE64
 
 # Add the object to the repository
 ndr_encrypt add --key_name=ourkey1 --pub_key=ourkey1.pub test/dir/ok.gif
+# or add the directory contents recursively
+# ndr_encrypt add --key_name=ourkey1 --pub_key=ourkey1.pub test
 
 # Move aside the original file, to test recovery
 mv test/dir/ok.gif{,.orig}
