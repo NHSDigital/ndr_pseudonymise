@@ -27,10 +27,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'minitest', '>= 5.0'
   spec.add_development_dependency 'mocha'
-  spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
+  spec.add_development_dependency 'ndr_dev_support', '>= 1.1'
   spec.add_development_dependency 'ndr_import'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '>= 12.3.3'
 
-  spec.required_ruby_version = '>= 2.6.0'
+  # Ruby 2.6.0 or later expected for normal operation, and needed for testing,
+  # but we support 2.0.0 for the ndr_encrypt utility
+  spec.required_ruby_version = '>= 2.0.0'
 end
