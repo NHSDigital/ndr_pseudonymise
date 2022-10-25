@@ -39,6 +39,9 @@ module NdrPseudonymise
           Find.find(path) do |fn|
             next unless File.file?(fn)
 
+            real_encrypted_dir = File.realdirpath(File.join(@repo_dir, ENCRYPTED_DIR))
+            next if File.realdirpath(fn).start_with?(real_encrypted_dir)
+
             git_blobid, _encrypted_id = hash_object(fn, key_name: key_name,
                                                         pub_key: pub_key, write: true)
             File.open(index_filename, 'ab') { |f| f << [git_blobid, fn].to_csv }
