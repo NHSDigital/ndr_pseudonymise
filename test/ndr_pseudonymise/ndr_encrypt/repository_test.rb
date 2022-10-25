@@ -76,6 +76,30 @@ module NdrPseudonymise
         assert_equal SAMPLE_IMAGE_SHA256SUM, Digest::SHA256.hexdigest(File.binread(@image_filename)),
                      'Should restore identical image file'
       end
+
+      test 'try to add encrypted directory to repository' do
+        # Set up an empty working copy
+        repo = NdrEncrypt::Repository.new(repo_dir: @repo_dir)
+        encrypted_dir = File.join(@repo_dir, NdrEncrypt::Repository::ENCRYPTED_DIR)
+        refute Dir.exist?(encrypted_dir), 'encrypted directory should not yet exist'
+        repo.init
+        assert Dir.exist?(encrypted_dir), 'encrypted directory should exist after init'
+
+        find_encrypted_files = lambda do
+          Dir.chdir(encrypted_dir) do
+            Find.find('.').select { |fn| File.file?(fn) }.collect { |s| s.gsub(%r{\A[.]/}, '') }
+          end
+        end
+        encrypted_files = find_encrypted_files.call
+        assert_equal ['index.csv'], encrypted_files, 'Expected only the index file'
+        # Try to add encrypt_dir to itself
+        Dir.chdir(@repo_dir) do
+          repo.add([NdrEncrypt::Repository::ENCRYPTED_DIR],
+                   key_name: @key_name, pub_key: @public_key_filename)
+        end
+        encrypted_files = find_encrypted_files.call
+        assert_equal ['index.csv'], encrypted_files, 'No files should have been added'
+      end
     end
   end
 end
