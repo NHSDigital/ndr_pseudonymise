@@ -1,5 +1,5 @@
 ## [Unreleased]
-* No unreleased changes
+* Tests should support Rails 7.0
 
 ## 0.4.2 / 2022-10-25
 ## Changed

@@ -4,6 +4,21 @@
 retrieved safely. The files still need to be hosted securely, but public /
 private key encryption provides additional protection.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'ndr_pseudonymise'
+```
+
+or for command line usage only, without installing any gems:
+
+``` shell
+$ git clone https://github.com/NHSDigital/ndr_pseudonymise.git
+$ ndr_pseudonymise/script/ndr_encrypt/ndr_encrypt --help
+```
+
 ## Overview
 
 We define a simple suite of tools, `ndr_encrypt`, to generate the encrypted
