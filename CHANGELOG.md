@@ -1,5 +1,10 @@
 ## [Unreleased]
+## Fixed
 * Tests should support Rails 7.0
+* Remove hidden Rails gemfile dependency
+
+## Added
+* Added minimalist script to generate repseudoids
 
 ## 0.4.2 / 2022-10-25
 ## Changed

@@ -81,7 +81,9 @@ module NdrPseudonymise
       handle_response { request(build_post_request(endpoint, params)) }
     end
 
-    delegate :request, to: :@host
+    def request(*args)
+      @host.request(*args)
+    end
 
     def handle_response
       response = yield
