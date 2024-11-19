@@ -11,7 +11,7 @@ file safety:
   ".github/workflows/test.yml":
     comments:
     reviewed_by: brian.shand
-    safe_revision: f3ba3e2742df497f1b3fcb699e0362f9913c1de6
+    safe_revision: b7a7a503a237cb8dfa3d8f06ac1627d097f2c2c7
   ".gitignore":
     comments:
     reviewed_by: brian.shand
@@ -27,7 +27,7 @@ file safety:
   CHANGELOG.md:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 66f0215cad3df30f1072dedd33e79c25a14cb77e
+    safe_revision: a647d462b5879630c4e7779790003e5a27aa1f7c
   Gemfile:
     comments:
     reviewed_by: brian.shand
@@ -75,7 +75,7 @@ file safety:
   lib/ndr_pseudonymise/client.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: afa305901982e1d42cf4503ba4941952b5de805b
+    safe_revision: a647d462b5879630c4e7779790003e5a27aa1f7c
   lib/ndr_pseudonymise/demographics_only_pseudonymiser.rb:
     comments:
     reviewed_by: brian.shand
@@ -103,7 +103,7 @@ file safety:
   lib/ndr_pseudonymise/ndr_encrypt/repository.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 1b1df81240b7d38917376a47faa6f4187e018885
+    safe_revision: 2902c51f710cdd9027df38935e22fe0e11366189
   lib/ndr_pseudonymise/prescription_pseudonymiser.rb:
     comments:
     reviewed_by: brian.shand
@@ -131,7 +131,7 @@ file safety:
   lib/ndr_pseudonymise/version.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 66f0215cad3df30f1072dedd33e79c25a14cb77e
+    safe_revision: 8c81e3605fc542673ffe8da1c5b73f6bb5e14db6
   lib/rsa_aes_cbc.rb:
     comments:
     reviewed_by: brian.shand
@@ -139,11 +139,15 @@ file safety:
   ndr_pseudonymise.gemspec:
     comments:
     reviewed_by: brian.shand
-    safe_revision: cc2d9ec62dfa402b7bf206996692f14f0df060fb
+    safe_revision: 8c81e3605fc542673ffe8da1c5b73f6bb5e14db6
+  script/generate_repseudoids.rb:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: a647d462b5879630c4e7779790003e5a27aa1f7c
   script/ndr_encrypt/README.md:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 1b1df81240b7d38917376a47faa6f4187e018885
+    safe_revision: cc9a0b5e3e5fbff3913921ed8ec0be802e135163
   script/ndr_encrypt/ndr_encrypt:
     comments:
     reviewed_by: brian.shand
@@ -159,7 +163,7 @@ file safety:
   test/ndr_pseudonymise/ndr_encrypt/repository_test.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 0bb496c1008e30d4843bdd767b8c5a2a19895d35
+    safe_revision: 2902c51f710cdd9027df38935e22fe0e11366189
   test/test_helper.rb:
     comments:
     reviewed_by: brian.shand
