@@ -1,6 +1,6 @@
 ## [Unreleased]
 ## Fixed
-* Tests should support Rails 7.0
+* Tests should support Rails 7.0, 7.1, 7.2, 8.0
 * Remove hidden Rails gemfile dependency
 
 ## Added
