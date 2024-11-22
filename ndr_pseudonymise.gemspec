@@ -23,6 +23,9 @@ Gem::Specification.new do |spec|
   # Object methods like .blank?
   spec.add_dependency 'activesupport'
 
+  # We list development dependencies for all Rails versions here.
+  # Rails version-specific dependencies can go in the relevant Gemfile.
+  # rubocop:disable Gemspec/DevelopmentDependencies
   spec.add_development_dependency 'activesupport'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'minitest', '>= 5.0'
@@ -31,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'ndr_import'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '>= 12.3.3'
+  # rubocop:enable Gemspec/DevelopmentDependencies
 
   # Ruby 2.6.0 or later expected for normal operation, and needed for testing,
   # but we support 2.0.0 for the ndr_encrypt utility
