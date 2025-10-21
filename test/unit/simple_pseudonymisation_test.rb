@@ -81,7 +81,7 @@ class SimplePseudonymisationTest < ActiveSupport::TestCase
     assert_equal(encrypted_data64,
                  NdrPseudonymise::SimplePseudonymisation.encrypt_data64(key, data))
     encrypted_data_to_compare = if encrypted_data.respond_to?(:force_encoding)
-                                  encrypted_data.force_encoding('ASCII-8BIT')
+                                  encrypted_data.dup.force_encoding('ASCII-8BIT')
                                 else
                                   encrypted_data
                                 end
