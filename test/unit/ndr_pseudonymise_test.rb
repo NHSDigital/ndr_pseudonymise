@@ -117,12 +117,12 @@ class NdrPseudonymiseTest < ActiveSupport::TestCase
   end
 
   test 'pseudonymise_row' do
-    # TODO: Test with / without encrypt_clinical option (here or 2 test methods)
+    skip 'TODO: Test with / without encrypt_clinical option (here or 2 test methods)'
   end
 
   test 'row_errors' do
-    # TODO: Test validations
-    # TODO: Test rows with too many columns (excluding extra blank data)
+    skip 'TODO: Test validations'
+    skip 'TODO: Test rows with too many columns (excluding extra blank data)'
   end
 
   # def encrypt
