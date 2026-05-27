@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/NHSDigital/ndr_pseudonymise'
   spec.license       = 'MIT'
 
-  ignore_files_re    = %r{^(\.github|test|spec|features|gemfiles|)/|.travis.yml|code_safety.yml}
+  ignore_files_re    = %r{^(\.github|test|spec|features|gemfiles|)/|code_safety.yml}
   spec.files         = `git ls-files -z`.split("\x0").
                        reject { |f| f.match(ignore_files_re) }
   spec.bindir        = 'exe'
